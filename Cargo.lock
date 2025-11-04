@@ -644,15 +644,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "guess-the-number"
-version = "0.0.1"
-dependencies = [
- "soroban-sdk",
- "stellar-registry",
- "stellar-xdr",
-]
-
-[[package]]
 name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
