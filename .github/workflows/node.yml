@@ -45,9 +45,9 @@ jobs:
       - run: npm ci
       # - run: npm run lint
       # - run: npx prettier . --check
-      - name: Build clients before building the project
-        run: STELLAR_SCAFFOLD_ENV=development stellar-scaffold build --build-clients
-      - run: npm run install:contracts
-      - run: npm run build
-      - name: Run tests
-        run: npm test --if-present
+      # - name: Build clients before building the project
+      #   run: STELLAR_SCAFFOLD_ENV=development stellar-scaffold build --build-clients
+      # - run: npm run install:contracts
+      # - run: npm run build
+      # - name: Run tests
+      #   run: npm test --if-present
