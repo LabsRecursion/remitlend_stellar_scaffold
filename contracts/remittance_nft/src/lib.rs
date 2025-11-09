@@ -1,7 +1,7 @@
 #![no_std]
 
 use soroban_sdk::{contract, contractimpl, contracttype, Address, Env, Vec};
-
+// CDX4GDHOBLO4NG7ODR5MAB773CJQ5JUIFFK4OTZGX6G6QRR6S34NC3FZ
 #[contracttype]
 #[derive(Clone)]
 pub struct RemittanceData {

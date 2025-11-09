@@ -1,5 +1,5 @@
 #![no_std]
-
+// CBDCY7FEWZ6P7ETHLD7OMMVTU5UMJ4JEFYGYVO22ZYJGIL7JAC5BESPT
 use soroban_sdk::{contract, contractimpl, Address, Env, String};
 use stellar_macros::default_impl;
 use stellar_tokens::fungible::{Base, FungibleToken};
@@ -23,5 +23,4 @@ impl TestToken {
 #[contractimpl]
 impl FungibleToken for TestToken {
     type ContractType = Base;
-
 }

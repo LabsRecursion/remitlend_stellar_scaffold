@@ -1,7 +1,7 @@
 
 #![no_std]
 use soroban_sdk::{contract, contractimpl, contracttype, Address, String, Env, Vec};
-
+// CCEDOC5VLXHFMLLKK7SGMYRAXTJJFQNQFUB5AHJJ52EJGYS57C23JPNV
 #[contracttype]
 #[derive(Clone)]
 pub struct VerificationRequest {
@@ -73,7 +73,6 @@ impl OracleVerifier {
         }
         env.storage().instance().set(&DataKey::OracleOperatorCount, &count);
     }
-    
 
     pub fn request_verification(
         env: Env,
@@ -174,7 +173,6 @@ impl OracleVerifier {
 
         nft_client.update_remittance_data(&nft_id, &amount, &0_i128); 
 
-        
         // Process automatic repayment through LoanManager
         let loan_manager: Address = env.storage().instance().get(&DataKey::LoanManagerContract).unwrap();
         let loan_manager_client = loan_manager::Client::new(&env, &loan_manager);
