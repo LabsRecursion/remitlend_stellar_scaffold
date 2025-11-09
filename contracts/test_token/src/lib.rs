@@ -4,7 +4,6 @@ use soroban_sdk::{contract, contractimpl, Address, Env, String};
 use stellar_macros::default_impl;
 use stellar_tokens::fungible::{Base, FungibleToken};
 
-
 #[contract]
 pub struct TestToken;
 

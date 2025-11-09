@@ -91,16 +91,21 @@ impl LoanManager {
 
     pub fn __initialize(
         env: Env,
+        usdc_token: Address,
+    ) {
+        env.storage().instance().set(&DataKey::USDCTokenAddress, &usdc_token);
+        env.storage().instance().set(&DataKey::LoanCounter, &0u64);
+    }
+    
+    pub fn set_up_addresses(
+        env: Env,
         nft_contract: Address,
         pool_contract: Address,
         oracle_contract: Address,
-        usdc_token: Address,
     ) {
         env.storage().instance().set(&DataKey::RemittanceNFTContract, &nft_contract);
         env.storage().instance().set(&DataKey::LendingPoolContract, &pool_contract);
         env.storage().instance().set(&DataKey::OracleContract, &oracle_contract);
-        env.storage().instance().set(&DataKey::USDCTokenAddress, &usdc_token);
-        env.storage().instance().set(&DataKey::LoanCounter, &0u64);
     }
 
     // Request loan

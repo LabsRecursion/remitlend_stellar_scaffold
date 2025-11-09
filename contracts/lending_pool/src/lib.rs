@@ -32,17 +32,22 @@ impl LendingPool {
 
     pub fn __initialize(
         env: Env,
-        loan_manager: Address,
-        usdc_token: Address,
         base_rate: u32,  // in basis points, e.g. 800 = 8%
     ) {
-        env.storage().instance().set(&DataKey::LoanManagerAddress, &loan_manager);
-        env.storage().instance().set(&DataKey::USDCTokenAddress, &usdc_token);
         env.storage().instance().set(&DataKey::BaseInterestRate, &base_rate);
         env.storage().instance().set(&DataKey::MaxUtilization, &9000u32); // 90%
         env.storage().instance().set(&DataKey::TotalLiquidity, &0i128);
         env.storage().instance().set(&DataKey::TotalBorrowed, &0i128);
         env.storage().instance().set(&DataKey::TotalInterestEarned, &0i128);
+    }
+    
+    pub fn set_up_addresses(
+        env: Env, 
+        loan_manager: Address,
+        usdc_token: Address,
+    ) {
+        env.storage().instance().set(&DataKey::LoanManagerAddress, &loan_manager);
+        env.storage().instance().set(&DataKey::USDCTokenAddress, &usdc_token);
     }
 
     pub fn deposit(env: Env, lender: Address, amount: i128) {

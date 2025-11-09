@@ -39,10 +39,13 @@ pub struct RemittanceNFT;
 #[contractimpl]
 impl RemittanceNFT {
 
-    pub fn __initialize(env: Env, oracle: Address, loan_manager: Address) {
+    pub fn __initialize(env: Env,) {
+        env.storage().instance().set(&DataKey::TokenCounter, &0u64);
+    }
+    
+    pub fn set_state_addresses(env: Env, oracle: Address, loan_manager: Address) {
         env.storage().instance().set(&DataKey::OracleAddress, &oracle);
         env.storage().instance().set(&DataKey::LoanManagerAddress, &loan_manager);
-        env.storage().instance().set(&DataKey::TokenCounter, &0u64);
     }
 
      pub fn mint(

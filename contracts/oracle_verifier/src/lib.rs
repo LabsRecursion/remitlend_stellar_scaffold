@@ -61,22 +61,19 @@ pub struct OracleVerifier;
 #[contractimpl]
 impl OracleVerifier {
 
-    pub fn __initialize(
-        env: Env,
-        nft_contract: Address,
-        loan_manager: Address,
-        operators: Vec<Address>,
-    ) {
+    pub fn __initialize(env: Env,) {}
+    
+    pub fn set_up_addresses(env: Env, nft_contract: Address, loan_manager: Address, operators: Vec<Address>,)  {
+        
         env.storage().instance().set(&DataKey::RemittanceNFTContract, &nft_contract);
         env.storage().instance().set(&DataKey::LoanManagerContract, &loan_manager);
-        
-        // Set oracle operators
         let count = operators.len();
         for i in 0..count {
             env.storage().instance().set(&DataKey::OracleOperators(i), &operators.get(i).unwrap());
         }
         env.storage().instance().set(&DataKey::OracleOperatorCount, &count);
     }
+    
 
     pub fn request_verification(
         env: Env,
@@ -255,5 +252,3 @@ impl OracleVerifier {
         (paid_count * 100) / total_count
     }
 }
-
-
