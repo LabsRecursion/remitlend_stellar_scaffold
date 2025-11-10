@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { useWallet } from "./useWallet";
-import * as contractInteractions from "../contracts/contractInteractions";
+import * as contractInteractions from "../contracts/contractInteractions.ts";
 
 export function useContractInteractions() {
   const wallet = useWallet();
