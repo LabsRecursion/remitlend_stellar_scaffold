@@ -4,7 +4,7 @@ import {
   buildContractTransaction,
   submitTransaction,
   toScVal,
-} from "../contracts/contractHelpers";
+} from "../contracts/contractHelpers.ts";
 
 const CONTRACTS = {
   REMITTANCE_NFT: "CBYVSIBDGYZMNS5VFZ3AVOEGCYEXPPVTBAKQHQ25JM5S7CT4EZNNOU4I",

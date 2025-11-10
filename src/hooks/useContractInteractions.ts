@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { useWallet } from "./useWallet";
-import * as contractInteractions from "../contracts/contractInteractions";
+import * as contractInteractions from "../contracts/contractInteractions.ts";
 
 export function useContractInteractions() {
   const wallet = useWallet();
@@ -86,11 +86,12 @@ export function useContractInteractions() {
     setError(null);
 
     try {
+      const amountToApprove = amount ?? BigInt(1_000_000_000);
       const approvedAmount =
         await contractInteractions.enableLendingPoolAllowance({
           publicKey: wallet.publicKey,
           signTransaction,
-          amount,
+          amount: amountToApprove,
         });
 
       setIsLoading(false);

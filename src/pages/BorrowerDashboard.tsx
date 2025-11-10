@@ -101,7 +101,7 @@ const parseLoanStruct = (loanId: number, rawLoan: unknown): Loan => {
     rawLoan && typeof rawLoan === "object"
       ? (() => {
           try {
-            return scValToNative(rawLoan) as Record<string, unknown>;
+            return scValToNative(rawLoan as never) as Record<string, unknown>;
           } catch {
             return rawLoan as Record<string, unknown>;
           }
@@ -180,7 +180,7 @@ const toNativeObject = (value: unknown): Record<string, unknown> | null => {
     return null;
   }
   try {
-    return scValToNative(value) as Record<string, unknown>;
+    return scValToNative(value as never) as Record<string, unknown>;
   } catch {
     return value as Record<string, unknown>;
   }
